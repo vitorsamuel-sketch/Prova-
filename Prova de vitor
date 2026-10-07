@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>calculadora de formas</h1>
+     
+    <form method="POST" action="">
+    <label for="altura">altura:</label>
+    <input type="number" step="any" name="altura" required><br><br>
+
+    <label for="comprimento">comprimento:</label>
+    <input type="number" step="any" name="comprimento" id="comprimento" required><br><br>
+
+
+    <button type="submit" name="calcular">Enviar</button></form>
+    
+     <?php
+        var_dump($_POST);
+        if (isset($_POST['calcular'])) {
+            $altura = floatval($_POST['altura']);
+            $comprimento = floatval($_POST['comprimento']);
+            $area = $altura * $comprimento;
+            echo "<h3>Resultado</h3>";
+            if ($altura == $comprimento) {
+                echo "quadrado - area: " . $area;
+            }
+            elseif ($altura > $comprimento) {
+                echo "Reatangulo Vertical - area: " . $area;
+            }
+
+            else {
+                echo "Retangulo horizontal - area: " . $area;
+            }
+        }
+
+        ?>
+</body>
+</html>
